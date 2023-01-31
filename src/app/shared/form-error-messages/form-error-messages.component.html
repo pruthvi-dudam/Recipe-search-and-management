@@ -1,0 +1,75 @@
+<div *ngIf="validatorMessage">
+  <div class="error" *ngIf="validatorMessage['required']">
+    This is a required field
+  </div>
+  <div class="error" *ngIf="validatorMessage['minlength']">
+    Your field is too short
+  </div>
+  <!-- <div>Your field is too long</div>
+    <div id="enter-number">Please enter a number</div>
+    <div>4 digits are required</div>
+    <div>Please enter only your 5 digit ZIP Code.</div>
+    <div>Please enter only a valid Canadian Postal Code</div>
+    <div>This password is not strong enough</div>
+    <div id="errorNo">Numbers only</div>
+    
+    <div>Must contain only letters and or numbers</div>-->
+  <div
+    class="error"
+    *ngIf="validatorMessage['pattern'] && !validatorMessage['minlength']"
+  >
+    Please enter only a valid Canadian Postal Code
+  </div>
+  <div
+    class="error"
+    *ngIf="validatorMessage['email'] && !validatorMessage['minlength']"
+  >
+    Please enter a valid email address
+  </div>
+  <div
+    class="error"
+    *ngIf="
+      validatorMessage['misMatchPassword'] || validatorMessage['misMatchEmail']
+    "
+  >
+    Must match the previous entry
+  </div>
+  <div
+    class="npnm"
+    *ngIf="
+      validatorMessage['invalidPassword'] && !validatorMessage['minlength']
+    "
+  >
+    Password must be 8 to 20 characters, with at least 1 letter and 1 digit.
+    Special characters are not accepted (i.e. !@#).
+  </div>
+  <div class="error" *ngIf="validatorMessage['pattern']">
+    Please enter a valid name
+  </div>
+  <!-- <div class="error" *ngIf="validatorMessage['pattern']">
+      Please enter a valid city
+    </div> -->
+  <div class="error" *ngIf="validatorMessage['invalidBirthDate']">
+    Please enter birthdate in correct format
+  </div>
+  <div class="error" *ngIf="validatorMessage['invalidCity']">
+    Please enter a valid city
+  </div>
+  <div class="error" *ngIf="validatorMessage['invalidUserName']">
+    Please enter a valid name
+  </div>
+
+  <!-- <div class="error npnm">
+      Password must be 8 to 20 characters, with at least 1 letter and 1 digit.
+      Special characters are not accepted (i.e. !@#).
+    </div>
+    <div>
+      Username must be between 5-20 characters, with combination of letters and/or
+      numbers
+    </div>
+    <div>Please enter a valid code</div>
+    <div>Please enter an address</div>
+    <div id="PhoneNumber">10 digits are required</div>
+    <div>Please enter a valid address</div>
+     -->
+</div>

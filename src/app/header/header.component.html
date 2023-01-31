@@ -1,0 +1,44 @@
+<header role="banner bg">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand g2" type="button" (click)="routeToHome()"
+        >Heavenly Bite</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarsExample05"
+        aria-controls="navbarsExample05"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExample05">
+        <ul class="navbar-nav ml-auto pl-lg-5 pl-0">
+          <li class="g1">
+            <a class="nav-link" type="button" (click)="routeToSR()"
+              >Saved Recipes</a
+            >
+          </li>
+          <li class="g1">
+            <a class="nav-link" type="button" (click)="routeToSL()"
+              >Shopping List</a
+            >
+          </li>
+          <li class="g1">
+            <a class="nav-link" type="button" (click)="routeToAU()">About Us</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item cta-btn g1">
+            <a class="nav-link" type="button" (click)="routeToLogin()"
+              >Log Out</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

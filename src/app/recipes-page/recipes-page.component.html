@@ -1,0 +1,64 @@
+<div class="bg">
+  <app-header></app-header>
+  <div class="page-wrapper">
+    <div id="heading" class="main-heading margin-top-100">
+      <h2 class="heading">{{ cuisine }} Recipes</h2>
+    </div>
+    <section id="searchQuery" class="padding-top-15">
+      <p class="text-15 left">
+        Looking for something specific? Search for ingredients below
+      </p>
+      <div class="row col-12">
+        <input
+          class="input"
+          placeholder="Type in a query such as 'Pasta', 'Curry' or 'Soup' etc.. "
+          [(ngModel)]="query"
+        />
+
+        <div class="col-sm">
+          <button class="button1" (click)="getQueryRecipes()">Search</button>
+        </div>
+      </div>
+    </section>
+    <section id="dietOptions" class="padding-top-25">
+      <p class="center body">
+        Filter out recipes based on your diet restrictions if needed
+      </p>
+      <div class="grid-container">
+        <div
+          *ngFor="let diet of dietList"
+          class="grid-item grid-item-1 btn-group btn-group-justified"
+        >
+          <button (click)="getDietRecipes(diet)" class="button1">
+            {{ diet }}
+          </button>
+        </div>
+      </div>
+    </section>
+    <hr />
+    <section id="recipesSection" class="padding-top-15">
+      <!-- TOP RECIPES -->
+      <div>
+        <p class="center body">{{ title }}</p>
+        <button *ngIf="isTopRecipe" class="button1" (click)="goBackToTop()">
+          Go to Top Recipes >
+        </button>
+        <div class="grid-container-card">
+          <div
+            *ngFor="let recipe of recipeList"
+            class="grid-item grid-item-1-card btn-group btn-group-justified"
+          >
+            <app-recipe-card
+              [imgSrc]="recipe.image"
+              [title]="recipe.title"
+              [isRecipe]="true"
+              [isDelete]="false"
+            ></app-recipe-card>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="clear margin-down-50"></div>
+  <app-footer></app-footer>
+</div>

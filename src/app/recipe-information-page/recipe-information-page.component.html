@@ -1,0 +1,100 @@
+<div class="bg">
+  <app-header></app-header>
+  <div class="page-wrapper margin-top-100">
+    <div id="heading" class="center">
+      <h2 class="heading">{{ title }}</h2>
+    </div>
+    <p class="font">You can have this dish as {{ dishes }}</p>
+    <p class="padding-left-20 font-small font">
+      <b> {{ likes }}</b> users have liked this recipe!
+    </p>
+    <div id="image" class="center padding-top-20 padding-down-20">
+      <img [src]="'' + imgSrc + ''" />
+    </div>
+    <div class="padding-top-20 padding-down-20">
+      <h2 class="left">Summary</h2>
+      <div id="Summary" [innerHTML]="summary" class="font"></div>
+    </div>
+    <div id="prep-time" class="grid-container padding-top-20">
+      <div class="grid-item">
+        <b> Total Time:</b>
+        <p class="font">{{ time }} mins</p>
+      </div>
+      <div class="grid-item padding-down-20">
+        <b> Servings:</b>
+        <p class="font">{{ servings }}</p>
+      </div>
+    </div>
+    <hr />
+    <div
+      id="ingredients"
+      class="grid-container-2 padding-top-20 padding-down-20"
+    >
+      <div class="grid-item-1">
+        <h2 class="left">Ingredients</h2>
+        <li *ngFor="let ingredient of ingredientList" class="font">
+          {{ ingredient.amount.us.value }} {{ ingredient.amount.us.unit }} of
+          {{ ingredient.name }}
+        </li>
+      </div>
+      <div class="grid-item-2">
+        <b class="font">Would you like to purchase these ingredients?</b>
+        <br />
+        <button class="button1" (click)="addToShoppingList()">
+          Click here to add to Shopping Cart
+        </button>
+      </div>
+    </div>
+    <hr />
+    <div id="instructions" class="padding-top-20 padding-down-20">
+      <h2 class="left">Instructions</h2>
+      <div *ngFor="let instruction of instructionList" class="font">
+        <p>Step {{ instruction.number }} :</p>
+        <p>{{ instruction.step }}</p>
+        <p *ngIf="!isMinutes(instruction?.length)" class="bracket">
+          {{ instruction.length.number }} {{ instruction.length.unit }}
+        </p>
+      </div>
+    </div>
+    <hr />
+    <div id="quick facts" class="padding-top-20 padding-down-20">
+      <h2 class="left">Some Quick facts about this recipe :</h2>
+      <div class="grid-container-3 padding-top-20">
+        <div *ngFor="let taste of tasteList | keyvalue" class="grid-item font">
+          <b> {{ taste.key }}:</b>
+          <p>{{ taste.value }}%</p>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div id="nutrition" class="padding-top-20 padding-down-20">
+      <h2 class="left">Nutrition</h2>
+      <div class="grid-container-3 padding-top-20">
+        <div *ngFor="let nutrition of nutritionList | keyvalue" class="font">
+          <b> {{ nutrition.value }} </b>
+          <p>{{ nutrition.key }}</p>
+        </div>
+      </div>
+      <div id="nutritionImg" [innerHTML]="nutritionImgSrc" class="font"></div>
+    </div>
+    <hr />
+    <div id="similarRecipes" class="padding-top-20 padding-down-20">
+      <h2 class="left">You may also like...</h2>
+      <div class="grid-container-card">
+        <div
+          *ngFor="let recipe of similarList; let i = index"
+          class="grid-item grid-item-1-card btn-group btn-group-justified"
+        >
+          <app-recipe-card
+            [imgSrc]="similarListImg[i]"
+            [title]="recipe.title"
+            [isRecipe]="true"
+            [isDelete]="false"
+          ></app-recipe-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clear margin-down-50"></div>
+  <app-footer></app-footer>
+</div>

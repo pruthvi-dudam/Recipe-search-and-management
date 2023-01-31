@@ -1,0 +1,41 @@
+<div class="bg">
+  <app-header></app-header>
+  <div class="page-wrapper margin-top-100">
+    <div id="heading" class="center">
+      <h2 class="heading">Shopping List</h2>
+    </div>
+    <div class="padding" *ngFor="let item of shoppingList | keyvalue">
+      <h2 class="sub-heading">
+        {{ item.value.t }}
+        <button class="button1" (click)="deleteShopItem(item.key)">
+          delete
+        </button>
+      </h2>
+      <div class="grid-container-4 padding-top-20 padding-down-20">
+        <div class="grid-item-1">
+          <img class="small-img" [src]="'' + item.value.i + ''" />
+        </div>
+        <div class="grid-item-2">
+          <b class="body">Ingredients</b>
+          <li *ngFor="let ingredient of item.value.ingredient" class="font">
+            {{ ingredient.amount.us.value }} {{ ingredient.amount.us.unit }} of
+            {{ ingredient.name }} : ${{ ingredient.price }}
+          </li>
+        </div>
+        <div class="grid-item-3">
+          <b class="body">Total Cost : ${{ item.value.tc }}</b>
+          <br />
+          <b class="body">Total Cost per serving : ${{ item.value.tcs }}</b>
+        </div>
+        <hr />
+      </div>
+    </div>
+    <div class="center body">
+      <b> Overall cost: $ {{ totalCost }}</b>
+      <br />
+      <b> Overall cost per serving: $ {{ totalCostServing }}</b>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <app-footer></app-footer>
+</div>

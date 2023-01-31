@@ -1,0 +1,86 @@
+.padding-top-20 {
+  padding-top: 20px;
+}
+
+.font-15 {
+  font-size: 15px;
+}
+
+.padding-left-20 {
+  padding-left: 20px;
+}
+.padding-down-20 {
+  padding-bottom: 20px;
+}
+
+.grid-container {
+  border-radius: black;
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  // grid-auto-rows: 60px;
+  // row-gap: 30px;
+  column-gap: 100px;
+  justify-content: left;
+  width: fit-content;
+}
+
+.grid-item {
+  //font-size: medium;
+  color: whitesmoke;
+  text-align: left;
+}
+
+.grid-container-2 {
+  border-radius: black;
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  grid-template-rows: minmax(150px, auto);
+  row-gap: 30px;
+  column-gap: 300px;
+  justify-content: left;
+  width: fit-content;
+  float: none;
+  //margin-bottom: 250px;
+}
+
+.grid-item-1 {
+  text-align: left;
+}
+.grid-item-2 {
+  justify-content: center;
+  text-align: left;
+}
+
+.button {
+  background-color: beige;
+  color: brown;
+  font-weight: 600;
+  display: inline-block;
+  width: 50%;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.bracket::before {
+  content: "[";
+}
+
+.bracket::after {
+  content: "]";
+}
+
+.grid-container-3 {
+  border-radius: black;
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-auto-rows: 60px;
+  //row-gap: 30px;
+  column-gap: 100px;
+  justify-content: left;
+  width: fit-content;
+}
+
+.font {
+  font-weight: 500;
+}

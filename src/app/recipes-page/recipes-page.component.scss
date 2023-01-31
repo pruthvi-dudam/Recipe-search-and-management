@@ -1,0 +1,77 @@
+.main-heading {
+  text-align: center;
+  font-weight: bold;
+}
+
+.input {
+  width: 50%;
+}
+
+.padding-top-15 {
+  padding-top: 15px;
+}
+
+.padding-top-25 {
+  padding-top: 25px;
+}
+
+.center {
+  text-align: center;
+  font-size: 15px;
+}
+
+.text-15 {
+  font-size: 15px;
+}
+
+.margin-top-100 {
+  margin-top: 100px;
+}
+
+.grid-container-card {
+  display: grid;
+  grid-template-columns: repeat(4, 130px);
+  grid-auto-rows: 80px;
+  row-gap: 300px;
+  column-gap: 200px;
+  justify-content: center;
+  align-content: stretch;
+}
+
+.grid-item-1-card {
+  font-size: small;
+  font-weight: bold;
+  text-align: center;
+}
+
+.bg {
+  background-image: url("./../../assets/home-page-bg.jpg") !important;
+  background-size: 100%;
+  background-position-y: bottom;
+}
+.margin-top-100 {
+  margin-top: 85px;
+}
+
+.body {
+  font-family: Impact, fantasy;
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 0.2mm;
+  font-weight: 50;
+}
+
+.left {
+  text-align: left;
+  font-family: Impact, fantasy;
+  font-size: 22px;
+  letter-spacing: 0.2mm;
+  font-weight: lighter;
+}
+
+.heading {
+  font-family: Impact, fantasy;
+  text-align: center;
+  font-size: 45px;
+  letter-spacing: 0.3mm;
+}

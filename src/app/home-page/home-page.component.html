@@ -1,0 +1,23 @@
+<div class="bg">
+  <app-header></app-header>
+  <div class="margin-top-50 page-wrapper">
+    <div id="heading">
+      <h2 class="heading">{{ username }}. Thinking what to cook ?</h2>
+      <h1 class="body padding-bottom-15">Select a cuisine to get started</h1>
+    </div>
+    <div id="body">
+      <div class="grid-container">
+        <div
+          *ngFor="let cuisine of cuisineList"
+          class="grid-item grid-item-1 btn-group btn-group-justified"
+        >
+          <button (click)="onClickCuisine(cuisine)" class="button1">
+            {{ cuisine }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="margin-down-50"></div>
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,63 @@
+.padding {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.small-img {
+  width: 150px;
+  height: 150px;
+}
+
+.sub-heading {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.grid-container-4 {
+  border-radius: black;
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  // grid-auto-rows: 60px;
+  row-gap: 30px;
+  column-gap: 40px;
+  justify-content: left;
+  width: fit-content;
+  grid-template-areas:
+    "image list"
+    "cost list";
+}
+
+.grid-item-1 {
+  grid-area: image;
+}
+.grid-item-2 {
+  grid-area: list;
+}
+.grid-item-3 {
+  grid-area: cost;
+}
+
+.button2 {
+  background-color: beige;
+  color: brown;
+  font-weight: 600;
+  display: inline-block;
+  width: 15%;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.bg {
+  background-image: url("./../../assets/home-page-bg.jpg") !important;
+  background-size: 100%;
+  background-position-y: bottom;
+}
+
+.margin-top-100 {
+  margin-top: 85px;
+}
+
+.font {
+  font-weight: 500;
+}

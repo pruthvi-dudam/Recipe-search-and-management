@@ -1,0 +1,160 @@
+<div class="bg">
+  <div class="page-wrapper get-center margin-bottom-500">
+    <h1 class="header-font">Welcome to Heavenly Bite</h1>
+    <div class="user-modal-container">
+      <ul class="switcher">
+        <li>
+          <a
+            (click)="clickSignIn()"
+            [ngStyle]="isSignin && { background: '#505260', color: 'white' }"
+            >Sign in</a
+          >
+        </li>
+        <li>
+          <a
+            (click)="clickNew()"
+            [ngStyle]="
+              isSignin == false && { background: '#505260', color: 'white' }
+            "
+            >New account</a
+          >
+        </li>
+      </ul>
+      <div *ngIf="isSignin" id="login" class="is-selected">
+        <form [formGroup]="oldUserInfoForm" class="form">
+          <div class="fieldset">
+            <label class="image-replace username">Username</label>
+            <div
+              class="col-xs"
+              *ngIf="this.oldUserInfoForm.controls.userName.touched"
+            >
+              <app-form-error-messages
+                [validatorMessage]="
+                  this.oldUserInfoForm.controls.userName.errors
+                "
+              ></app-form-error-messages>
+            </div>
+            <input
+              [ngClass]="{
+                'input-error':
+                  this.oldUserInfoForm.controls.userName.value &&
+                  this.oldUserInfoForm.controls.userName.touched
+              }"
+              type="text"
+              name="lastName"
+              formControlName="userName"
+              class="full-width has-padding has-border"
+              placeholder="Username"
+            />
+          </div>
+          <div class="fieldset">
+            <label class="image-replace password">Password</label>
+            <div
+              class="col-xs"
+              *ngIf="this.oldUserInfoForm.controls.password.touched"
+            >
+              <app-form-error-messages
+                [validatorMessage]="
+                  this.oldUserInfoForm.controls.password.errors
+                "
+              ></app-form-error-messages>
+            </div>
+            <input
+              [ngClass]="{
+                'input-error':
+                  this.oldUserInfoForm.controls.password.value &&
+                  this.oldUserInfoForm.controls.password.touched
+              }"
+              class="full-width has-padding has-border"
+              [type]="show ? 'text' : 'password'"
+              formControlName="password"
+              placeholder="Password"
+            />
+            <a type="button" (click)="showPassword()" class="hide-password">{{
+              show ? "Hide" : "Show"
+            }}</a>
+            <!-- <span class="error-message"> Wrong password! Try again. </span> -->
+          </div>
+          <p class="fieldset">
+            <input
+              class="full-width"
+              type="submit"
+              value="Login"
+              [disabled]="this.oldUserInfoForm.invalid"
+              (click)="login()"
+            />
+          </p>
+        </form>
+      </div>
+      <div *ngIf="isSignin == false" id="signup" class="is-selected">
+        <form [formGroup]="newUserInfoForm" class="form">
+          <div class="fieldset">
+            <label class="image-replace username">Username</label>
+            <div
+              class="col-xs"
+              *ngIf="this.newUserInfoForm.controls.userName.touched"
+            >
+              <app-form-error-messages
+                [validatorMessage]="
+                  this.newUserInfoForm.controls.userName.errors
+                "
+              ></app-form-error-messages>
+            </div>
+            <input
+              [ngClass]="{
+                'input-error':
+                  this.newUserInfoForm.controls.userName.value &&
+                  this.newUserInfoForm.controls.userName.touched
+              }"
+              type="text"
+              name="lastName"
+              formControlName="userName"
+              class="full-width has-padding has-border"
+              placeholder="Username"
+            />
+          </div>
+          <div class="fieldset">
+            <label class="image-replace password">Password</label>
+            <div
+              class="col-xs"
+              *ngIf="this.newUserInfoForm.controls.password.touched"
+            >
+              <app-form-error-messages
+                [validatorMessage]="
+                  this.newUserInfoForm.controls.password.errors
+                "
+              ></app-form-error-messages>
+            </div>
+            <input
+              [ngClass]="{
+                'input-error':
+                  this.newUserInfoForm.controls.password.value &&
+                  this.newUserInfoForm.controls.password.touched
+              }"
+              class="full-width has-padding has-border"
+              type="password"
+              formControlName="password"
+              placeholder="Password"
+            />
+            <a href="" class="hide-password">Show</a>
+            <!-- <span class="error-message"> Wrong password! Try again. </span> -->
+          </div>
+          <p class="fieldset">
+            <input
+              class="full-width"
+              type="submit"
+              value="Create User"
+              [disabled]="this.newUserInfoForm.invalid"
+              (click)="newUser()"
+            />
+          </p>
+        </form>
+      </div>
+      <div class="col-xs error" *ngIf="userNotfound">UserName not found !</div>
+      <div class="col-xs error" *ngIf="passwordIncorrect">
+        Password is Incorrect !
+      </div>
+    </div>
+  </div>
+  <div class="margin-bottom-500">.</div>
+</div>

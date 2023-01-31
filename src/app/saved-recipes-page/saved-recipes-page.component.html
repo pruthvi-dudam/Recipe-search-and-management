@@ -1,0 +1,26 @@
+<div class="bg">
+  <app-header></app-header>
+  <div class="page-wrapper center margin-top-100">
+    <div id="heading">
+      <h2 class="heading">Saved Recipes</h2>
+    </div>
+    <div id="body" class="padding-top-20">
+      <div class="grid-container-card">
+        <div
+          *ngFor="let recipe of savedRecipesList | keyvalue"
+          class="grid-item grid-item-1-card btn-group btn-group-justified"
+        >
+          <app-recipe-card
+            [imgSrc]="recipe.value"
+            [title]="recipe.key"
+            [isRecipe]="true"
+            [isDelete]="true"
+            (deletedRecipe)="getDeletedRecipe(recipe.key)"
+          ></app-recipe-card>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <app-footer></app-footer>
+</div>
